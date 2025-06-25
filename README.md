@@ -12,7 +12,7 @@ Aplikasi ujian ini saya buat berdasarkan aplikasi ujian TCExam yang mana telah m
    - <a href="https://github.com/Triaokta">Tria Oktaviana</a>
    - <a href="https://github.com/KyandraAtharizqi">Rafi Kyandra</a>
 
-<img src="https://i.postimg.cc/2y6CRpWk/Logo-Universitas-Lampung-removebg-preview.png" alt="Universitas Sultan Ageng Tirtayasa" style="display: block; margin: 0 auto; width: 250px; height: auto;">
+<img src="https://untirta.ac.id/wp-content/uploads/2020/05/logo.png" alt="Universitas Sultan Ageng Tirtayasa" style="display: block; margin: 0 auto; width: 250px; height: auto;">
 
 ------------------------------------------------------
 
