@@ -7,21 +7,19 @@ Aplikasi ujian ini saya buat berdasarkan aplikasi ujian TCExam yang mana telah m
 * Password Unlock/Close untuk user: krakatau1234
 * Password Admin localhost (Config user): krakatau2023
 
-* Support me: https://trakteer.id/acediazz/tip (Miftah)
-
 ------------------------------------------------------
 # This site is authored by:
-   - <a href="https://github.com/hudalgtr99">Miftahul Huda Guntara</a>
-   - <a href="https://github.com/smilling07">Muhammad Rizky Rifaldi</a>
+   - <a href="https://github.com/Triaokta">Tria Oktaviana</a>
+   - <a href="https://github.com/KyandraAtharizqi">Rafi Kyandra</a>
 
-<img src="https://i.postimg.cc/2y6CRpWk/Logo-Universitas-Lampung-removebg-preview.png" alt="Universitas Lampung" style="display: block; margin: 0 auto; width: 250px; height: auto;">
+<img src="https://i.postimg.cc/2y6CRpWk/Logo-Universitas-Lampung-removebg-preview.png" alt="Universitas Sultan Ageng Tirtayasa" style="display: block; margin: 0 auto; width: 250px; height: auto;">
 
 ------------------------------------------------------
 
 
 ### Halaman Login
 
-<img src="https://i.postimg.cc/jdXJ6hzq/Screenshot-2023-10-03-141440.png" width="800px"/>
+<img src="[https://i.postimg.cc/jdXJ6hzq/Screenshot-2023-10-03-141440.png](https://untirta.ac.id/wp-content/uploads/2020/05/logo.png)" width="800px"/>
 
 Halaman login adalah sebuah tampilan atau layar yang digunakan untuk mengidentifikasi pengguna sebelum mereka dapat mengakses suatu sistem, aplikasi, atau situs web. Halaman ini meminta pengguna untuk memasukkan informasi pengenal, seperti nama pengguna (username), serta kata sandi (password) yang telah didaftarkan sebelumnya. Tujuan dari halaman login adalah untuk memberikan akses yang terbatas kepada pengguna yang telah terotentikasi, melindungi informasi pribadi, dan mencegah akses tidak sah ke suatu platform.
 
