@@ -1,0 +1,109 @@
+<?php
+
+/**
+ * Returns a menu element link wit subitems.
+ * If the link refers to the current page, only the name will be returned.
+ * @param $link (string) URL
+ * @param $data (array) link data
+ * @param $level (int) item level
+ */
+function F_menu_link($link, $data, $level = 0)
+{
+    global $l, $db;
+    require_once('../config/tce_config.php');
+    if (!$data['enabled'] or ($_SESSION['session_user_level'] < $data['level'])) {
+        // this item is disabled
+        return;
+    }
+    $str = '<li>';
+    if ($link != basename($_SERVER['SCRIPT_NAME'])) {
+        $str .= '<a href="'.$data['link'].'" title="'.$data['title'].'"';
+        if (!empty($data['key'])) {
+            $str .= ' accesskey="'.$data['key'].'"';
+        }
+        if (F_menu_isChildActive($data)) {
+            $str .= ' class="active"';
+        }
+        $str .= '>'.$data['name'].'</a>';
+    } else {
+        // active link
+        $str .= '<span class="active">'.$data['name'].'</span>';
+    }
+    if (isset($data['sub']) and !empty($data['sub'])) {
+        // print sub-items
+        $sublevel = ($level + 1);
+        $str .= K_NEWLINE.'<!--[if lte IE 6]><iframe class="menu"></iframe><![endif]-->'.K_NEWLINE;
+        $str .= '<ul>'.K_NEWLINE;
+        foreach ($data['sub'] as $sublink => $subdata) {
+            $str .= F_menu_link($sublink, $subdata, $sublevel);
+        }
+        $str .= '</ul>'.K_NEWLINE;
+    }
+    $str .= '</li>'.K_NEWLINE;
+    return $str;
+}
+
+function F_menu_link_alt($link, $data, $level = 0)
+{
+    global $l, $db;
+    require_once('../config/tce_config.php');
+    if (!$data['enabled'] or ($_SESSION['session_user_level'] < $data['level'])) {
+        // this item is disabled
+        return;
+    }
+    $str = '<li>';
+    if ($link != basename($_SERVER['SCRIPT_NAME'])) {
+		$open = '';
+        $str .= '<a href="'.$data['link'].'" title="'.$data['title'].'"';
+        if (!empty($data['key'])) {
+            $str .= ' accesskey="'.$data['key'].'"';
+        }
+        if (F_menu_isChildActive($data)) {
+            $str .= ' class="active" aria-expanded="true"';
+			$open = 'class="mm-show"';
+        }
+        $str .= '>'.$data['name'].'</a>';
+    } else {
+        // active link
+        $str .= '<a href="#" class="mm-active">'.$data['name'].'</a>';
+    }
+    if (isset($data['sub']) and !empty($data['sub'])) {
+        // print sub-items
+        $sublevel = ($level + 1);
+        // $str .= K_NEWLINE.'<!--[if lte IE 6]><iframe class="menu"></iframe><![endif]-->'.K_NEWLINE;
+        $str .= '<ul '.$open.'>'.K_NEWLINE;
+        foreach ($data['sub'] as $sublink => $subdata) {
+            $str .= F_menu_link_alt($sublink, $subdata, $sublevel);
+			// echo $open;
+        }
+        $str .= '</ul>'.K_NEWLINE;
+    }
+    $str .= '</li>'.K_NEWLINE;
+    return $str;
+}
+
+/**
+ * Returns true if the menu item has an active child, false otherwise.
+ * @param $data (array) link data
+ */
+function F_menu_isChildActive($data)
+{
+    if (isset($data['sub']) and !empty($data['sub'])) {
+        if (array_key_exists(basename($_SERVER['SCRIPT_NAME']), $data['sub'])) {
+            // key found
+            return true;
+        } else {
+            // try sub-trees
+            foreach ($data['sub'] as $submenu) {
+                if (F_menu_isChildActive($submenu)) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+//============================================================+
+// END OF FILE
+//============================================================+
