@@ -3,7 +3,7 @@
 /**
  * Host URL (e.g.: "http://www.yoursite.com").
  */
-define('K_PATH_HOST', 'http://localhost');
+define('K_PATH_HOST', '');
 /* if((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || $_SERVER['SERVER_PORT'] == 443)
 {
 	define('K_PATH_HOST', 'http://localhost'.$_SERVER['SERVER_NAME']);
@@ -13,12 +13,12 @@ define('K_PATH_HOST', 'http://localhost');
 /**
  * Relative URL where this program is installed (e.g.: "/").
  */
-define('K_PATH_TCEXAM', '/Krakatau-Exam-main/');
+define('K_PATH_TCEXAM', '/CBT-KSP/');
 
 /**
  * Real full path where this program is installed (e.g: "/var/www/html/TCExam/").
  */
-define('K_PATH_MAIN', 'C:/laragon/www/Krakatau-Exam-main/');
+define('K_PATH_MAIN', 'C:/laragon/www/CBT-KSP/');
 
 /**
  * Constant used on TCPDF library.

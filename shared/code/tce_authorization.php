@@ -166,11 +166,16 @@ if (isset($_POST['logaction']) and ($_POST['logaction'] == 'login') and isset($_
 					
 					//user level 0 - munculkan keterangan user sedang dinonaktifkan
 					
-					if($m['user_level']==0){
-						$login_status = array("userdisabled","Akun <b>".$m['user_name']."</b> sedang dinon-aktifkan. Hubungi panitia ujian apabila memerlukan bantuan. Jika kendala sudah terselesaikan, silakan <b>reload</b> halaman ini lalu coba ulangi proses login<br/><span onclick='window.location.reload()' style='background:var(--col-15t)' class='c-pointer mt-5 d-block py-05em brad5 px-1em'>Reload</span>");
-						echo json_encode($login_status);
-						die();
-					}
+                // --- PENJAGA GERBANG FINAL ---
+                // Periksa level user dari data yang baru saja diambil dari database ($m)
+                if ($m['user_level'] == 0) {
+                    // Jika levelnya 0, jangan lanjutkan proses login sama sekali.
+                    // Kirim pesan error yang jelas dan hentikan skrip.
+                    $login_status = array("error", "Akun Anda telah dinon-aktifkan karena terdeteksi pelanggaran. Silakan hubungi pengawas ujian.");
+                    echo json_encode($login_status);
+                    die();
+                }
+                // --- AKHIR PENJAGA GERBANG FINAL ---
 						
 					if(!K_ENABLE_MULTI_LOGIN){	
 						//cegah login ganda - hanya berlaku untuk Pelamar (Level 1)
