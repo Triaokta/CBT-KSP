@@ -1,0 +1,34 @@
+# render.yaml
+# Konfigurasi untuk membuat Web Service (PHP) dan Database (MySQL) sekaligus.
+
+databases:
+  - name: cbt-ksp         # Nama internal untuk database di Render
+  databaseName: cbt-ksp  # Nama database SQL Anda
+    user: root      # Username database Anda
+    plan: free               # Menggunakan paket gratis
+    mysqlVersion: 8          # Menggunakan MySQL versi 8
+
+services:
+  - type: web
+    name: krakatau-app       # Nama untuk aplikasi web Anda
+    runtime: php
+    plan: free
+    buildCommannd: 'echo "Tidak ada langkah build"'
+    startCommand: 'apache2-foreground'
+    envVars:
+      - key: DB_HOST
+        fromDatabase:
+          name: krakatau-db
+          property: host
+      - key: DB_USER
+        fromDatabase:
+          name: krakatau-db
+          property: user
+      - key: DB_PASS
+        fromDatabase:
+          name: krakatau-db
+          property: password
+      - key: DB_NAME
+        fromDatabase:
+          name: krakatau-db
+          property: database
