@@ -1,0 +1,6 @@
+user_id	user_name	user_password	user_email	user_regdate	user_ip	user_firstname	user_lastname	user_birthdate	user_birthplace	user_regnumber	user_ssn	user_level	user_verifycode	user_otpkey	user_groups
+2	ADMIN			2001-01-01 01:01:01	127.0.0.0							2			ACCOUNTING,FINANCE,HUMAN CAPITAL,IT & MANAGEMENT SYSTEM,PELAMAR
+11	pelamarfinance		pelamarfinance@gmail.com	2025-07-04 09:10:45	0000:0000:0000:0000:0000:ffff:7f00:0001	pelamar	finance	1999-07-04	serang	085218901109	4567891	1		JXMQEIR2Q2WNHQWQ	FINANCE,PELAMAR
+10	pelamarhc		pelamar@gmail.com	2025-06-26 14:19:37	0000:0000:0000:0000:0000:ffff:7f00:0001	pelamar	hc	2025-06-26	cilegon	085218901101	3456789	1		GED3VTWQ2B2MNW4F	HUMAN CAPITAL,PELAMAR
+8	Rafi		rafi@gmail.com	2025-06-25 14:08:06	0000:0000:0000:0000:0000:ffff:7f00:0001	Rafi	Kyandra	2003-07-16	serang	085218901100	234567	1		XDEEBWVMPFH7E64I	FINANCE,PELAMAR
+3	triaokta		trianaviana@gmail.com	2025-06-25 10:10:51	0000:0000:0000:0000:0000:ffff:7f00:0001	Tria	Oktaviana	2002-10-02	cilegon	085218901107	12345678	1		MZ3L4MR7HIWD5D66	HUMAN CAPITAL,PELAMAR

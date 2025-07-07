@@ -1,6 +1,14 @@
 <?php
 
 require_once('../config/tce_config.php');
+require_once __DIR__ . '/../../vendor/autoload.php';
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Writer\Csv;
+
 
 $pagelevel = K_AUTH_IMPORT_USERS;
 require_once('../../shared/code/tce_authorization.php');
@@ -34,17 +42,21 @@ switch ($menu_mode) {
                         }
                         break;
                     }
-					case 3: {
-						// echo K_PATH_CACHE.$uploadedfile;
-						// echo $uploadedfile;
-						$new_filename = $uploadedfile.'_'.date('Y-m-d_H_i_s').'.tsv';
-						require_once 'PHPExcel/Classes/PHPExcel/IOFactory.php';
-						$excel = PHPExcel_IOFactory::load(K_PATH_CACHE.$uploadedfile);
-						$writer = PHPExcel_IOFactory::createWriter($excel, 'CSV');
-						$writer->setDelimiter("\t");
-						$writer->setEnclosure("");
-						$writer->save(K_PATH_CACHE.$new_filename);
-                        if (F_import_tsv_users(K_PATH_CACHE.$new_filename)) {
+
+                    case 3: {
+                        $new_filename = $uploadedfile . '_' . date('Y-m-d_H_i_s') . '.tsv';
+
+                        // Load Excel file (.xlsx, .xls, dsb)
+                        $spreadsheet = IOFactory::load(K_PATH_CACHE . $uploadedfile);
+
+                        // Buat writer CSV dengan delimiter tab
+                        $writer = new Csv($spreadsheet);
+                        $writer->setDelimiter("\t");
+                        $writer->setEnclosure('');
+                        $writer->setSheetIndex(0); // Pastikan ambil sheet pertama
+                        $writer->save(K_PATH_CACHE . $new_filename);
+
+                        if (F_import_tsv_users(K_PATH_CACHE . $new_filename)) {
                             F_print_error('MESSAGE', $l['m_importing_complete']);
                         }
                         break;
